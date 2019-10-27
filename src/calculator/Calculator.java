@@ -16,6 +16,18 @@ public class Calculator {
         n1 = n2 = 0;
     }
 
+    public void run() {
+        System.out.println("Please input the 1st number");
+        n1 = inputNumber();
+        System.out.println("Please input the 2nd number");
+        n2 = inputNumber();
+        System.out.println();
+        op = chooseOperator();
+        double result = calculate(n1, n2, op);
+        System.out.println();
+        System.out.println("Your result is: " + result);
+    }
+
     public double calculate(double n1, double n2, char op) {
         switch (op) {
             case '+':
@@ -25,8 +37,12 @@ public class Calculator {
             case '*':
                 return n1 * n2;
             case '/':
+                if (n2 == 0)
+                    throw new ArithmeticException("Division by 0");
                 return n1 / n2;
             case '%':
+                if (n2 == 0)
+                    throw new ArithmeticException("Modulus by 0");
                 return n1 % n2;
         }
         return 0;
