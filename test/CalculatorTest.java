@@ -16,35 +16,41 @@ public class CalculatorTest {
 
     @Test
     public void inputTestValidDoubleWithoutDecimal() {
-        double n = calculator.inputNumber("1");
+        // double n = calculator.inputNumber("1");
+        double n = calculator.inputNumber();
         assertEquals(n, 1.0);
     }
 
     @Test
     public void inputTestValidDoubleWithDecimal() {
-        double n = calculator.inputNumber("1.823");
+        // double n = calculator.inputNumber("1.823");
+        double n = calculator.inputNumber();
         assertEquals(n, 1.823);
     }
 
     @Test (expected = NumberFormatException.class)
     public void inputTestInvalidString() {
-        double n = calculator.inputNumber("asda");
+        // double n = calculator.inputNumber("asda");
+        double n = calculator.inputNumber();
     }
 
     @Test
     public void operatorTestWithValidChoice() {
-        char op = calculator.chooseOperator("2");
+        // char op = calculator.chooseOperator("2");
+        char op = calculator.chooseOperator();
         assertEquals(op, '-');
     }
 
     @Test (expected = NoSuchElementException.class)
     public void operatorTestWithInvalidChoice() {
-        char op = calculator.chooseOperator("8");
+        // char op = calculator.chooseOperator("8");
+        char op = calculator.chooseOperator();
     }
 
     @Test (expected = NumberFormatException.class)
-    public void operatorTestWithInvalidChoice() {
-        char op = calculator.chooseOperator("acsac");
+    public void operatorTestWithInvalidInput() {
+        // char op = calculator.chooseOperator("acsac");
+        char op = calculator.chooseOperator();
     }
 
     @Test
